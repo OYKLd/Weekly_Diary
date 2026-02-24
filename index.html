@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Hebdomadaire</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <button class="nav-btn" id="prevWeek" aria-label="Semaine précédente">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            
+            <div class="week-info">
+                <h1 class="week-title" id="weekTitle">Semaine du...</h1>
+                <button class="today-btn" id="todayBtn">Aujourd'hui</button>
+            </div>
+            
+            <button class="nav-btn" id="nextWeek" aria-label="Semaine suivante">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="calendar-container">
+            <div class="time-column">
+                <div class="time-header"></div>
+                <div class="time-slots" id="timeSlots">
+                </div>
+            </div>
+            
+            <div class="days-grid" id="daysGrid">
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nouvel événement</h2>
+                <button class="close-btn" id="closeModal" aria-label="Fermer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form class="event-form" id="eventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Titre</label>
+                    <input type="text" id="eventTitle" required placeholder="Ex: Réunion équipe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDay">Jour</label>
+                    <select id="eventDay" required>
+                        <option value="0">Lundi</option>
+                        <option value="1">Mardi</option>
+                        <option value="2">Mercredi</option>
+                        <option value="3">Jeudi</option>
+                        <option value="4">Vendredi</option>
+                        <option value="5">Samedi</option>
+                        <option value="6">Dimanche</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventHour">Heure</label>
+                    <select id="eventHour" required>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDuration">Durée (heures)</label>
+                    <select id="eventDuration" required>
+                        <option value="1">1 heure</option>
+                        <option value="2">2 heures</option>
+                        <option value="3">3 heures</option>
+                        <option value="4">4 heures</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventType">Type</label>
+                    <select id="eventType" required>
+                        <option value="work">Travail</option>
+                        <option value="personal">Personnel</option>
+                        <option value="meeting">Réunion</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button class="fab" id="addEventBtn" aria-label="Ajouter un événement">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
